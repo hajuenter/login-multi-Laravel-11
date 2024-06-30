@@ -28,5 +28,5 @@ Route::get('admin/dashboard', [AdminController::class, 'AdminDashboard'])->name(
 
 Route::middleware(['auth', 'role:agent'])->group(function(){
 //route dashboard ketika yang login agent
-Route::get('agent/dashboard', [AdminController::class, 'AgentDashboard'])->name('agent.dashboard');
+Route::get('agent/dashboard', [AgentController::class, 'AgentDashboard'])->name('agent.dashboard');
 });
