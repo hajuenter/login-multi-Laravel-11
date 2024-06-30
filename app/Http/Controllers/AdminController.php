@@ -12,6 +12,6 @@ class AdminController extends Controller
         //mengembalikan atau memberi view dengan mengambil
         //di resource lalu views lalu folder admin lalu buat file
         //dengan nama admin_dashboard.blade.php
-        return view('admin.admin_dashboard');
+        return view('admin.index');
     }
 }
