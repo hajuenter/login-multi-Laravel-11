@@ -28,7 +28,20 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        //membuat autentifikasi login sesuai dengan data dari 
+        //database yaitu sesuai dengan kolom role
+        // dd($request->user()->role); untuk cek saja baris ini
+
+        //buat percabangannya ketika login role admin / agent / user
+        if($request->user()->role == 'admin'){
+            //jika yang login role nya admin maka url akan menuju ke admin/dashboard
+            return redirect()->intended('admin/dashboard');
+        }elseif($request->user()->role == 'agent'){
+            //jika yang login role nya agent maka url akan menuju ke agent/dashboard
+            return redirect()->intended('agent/dashboard');
+        }elseif($request->user()->role == 'user'){
+            return redirect()->intended(route('dashboard', absolute: false));
+        }
     }
 
     /**
