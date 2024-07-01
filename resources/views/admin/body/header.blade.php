@@ -134,8 +134,8 @@
                             </div>
                             <div class="d-flex justify-content-between flex-grow-1">
                                 <div class="me-4">
-                                    <p>Amiah Burton</p>
-                                    <p class="tx-12 text-muted">Project deatline</p>
+                                    <p>hhhh</p>
+                                    <p class="tx-12 text-muted">hhh</p>
                                 </div>
                                 <p class="tx-12 text-muted">2 hrs ago</p>
                             </div>
@@ -242,13 +242,13 @@
                                 alt="">
                         </div>
                         <div class="text-center">
-                            <p class="tx-16 fw-bolder">Amiah Burton</p>
-                            <p class="tx-12 text-muted">amiahburton@gmail.com</p>
+                            <p class="tx-16 fw-bolder">{{ Auth::user()->name}}</p>
+                            <p class="tx-12 text-muted">{{ Auth::user()->email}}</p>
                         </div>
                     </div>
                     <ul class="list-unstyled p-1">
                         <li class="dropdown-item py-2">
-                            <a href="pages/general/profile.html" class="text-body ms-0">
+                            <a href="{{ url('admin/profile') }}" class="text-body ms-0">
                                 <i class="me-2 icon-md" data-feather="user"></i>
                                 <span>Profile</span>
                             </a>

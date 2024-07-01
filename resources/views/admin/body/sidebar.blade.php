@@ -1,6 +1,6 @@
 <nav class="sidebar">
     <div class="sidebar-header">
-        <a href="#" class="sidebar-brand">
+        <a href="{{ route('admin.dashboard') }}" class="sidebar-brand">
             HJN<span>oi</span>
         </a>
         <div class="sidebar-toggler not-active">
@@ -12,18 +12,22 @@
     <div class="sidebar-body">
         <ul class="nav">
             <li class="nav-item nav-category">Menu Utama</li>
-            <li class="nav-item">
-                <a href="dashboard.html" class="nav-link">
+         
+            {{-- menu dashboard --}}
+        <li class="nav-item">
+            <a href="{{ route('admin.dashboard') }}" class="nav-link">
                     <i class="link-icon" data-feather="box"></i>
                     <span class="link-title">Dashboard</span>
                 </a>
-            </li>
-            <li class="nav-item nav-category">Menu Chat dan Waktu</li>
+        </li>
+            {{-- menu dashboard end --}}
+
+            {{-- menu pesan --}}
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false"
                     aria-controls="emails">
                     <i class="link-icon" data-feather="mail"></i>
-                    <span class="link-title">Email</span>
+                    <span class="link-title">Pesan</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="emails">
@@ -40,20 +44,11 @@
                     </ul>
                 </div>
             </li>
-            <li class="nav-item">
-                <a href="pages/apps/chat.html" class="nav-link">
-                    <i class="link-icon" data-feather="message-square"></i>
-                    <span class="link-title">Chat</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="pages/apps/calendar.html" class="nav-link">
-                    <i class="link-icon" data-feather="calendar"></i>
-                    <span class="link-title">Calendar</span>
-                </a>
-            </li>
-            <li class="nav-item nav-category">Components</li>
-            <li class="nav-item">
+            {{-- menu pesan end --}}    
+
+            
+            <li class="nav-item nav-category">MENU MASTER</li>
+            {{-- <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false"
                     aria-controls="uiComponents">
                     <i class="link-icon" data-feather="feather"></i>
@@ -67,69 +62,6 @@
                         </li>
                         <li class="nav-item">
                             <a href="pages/ui-components/alerts.html" class="nav-link">Alerts</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/badges.html" class="nav-link">Badges</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/breadcrumbs.html" class="nav-link">Breadcrumbs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/buttons.html" class="nav-link">Buttons</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/button-group.html" class="nav-link">Button group</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/cards.html" class="nav-link">Cards</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/carousel.html" class="nav-link">Carousel</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/collapse.html" class="nav-link">Collapse</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/dropdowns.html" class="nav-link">Dropdowns</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/list-group.html" class="nav-link">List group</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/media-object.html" class="nav-link">Media object</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/modal.html" class="nav-link">Modal</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/navs.html" class="nav-link">Navs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/navbar.html" class="nav-link">Navbar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/pagination.html" class="nav-link">Pagination</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/popover.html" class="nav-link">Popovers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/progress.html" class="nav-link">Progress</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/scrollbar.html" class="nav-link">Scrollbar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/scrollspy.html" class="nav-link">Scrollspy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/spinners.html" class="nav-link">Spinners</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/tabs.html" class="nav-link">Tabs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/tooltips.html" class="nav-link">Tooltips</a>
                         </li>
                     </ul>
                 </div>
@@ -149,89 +81,116 @@
                         <li class="nav-item">
                             <a href="pages/advanced-ui/owl-carousel.html" class="nav-link">Owl carousel</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="pages/advanced-ui/sortablejs.html" class="nav-link">SortableJs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/advanced-ui/sweet-alert.html" class="nav-link">Sweet Alert</a>
-                        </li>
                     </ul>
                 </div>
-            </li>
+            </li> --}}
+
+            {{-- menu data barang --}}
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#forms" role="button" aria-expanded="false"
                     aria-controls="forms">
                     <i class="link-icon" data-feather="inbox"></i>
-                    <span class="link-title">Forms</span>
+                    <span class="link-title">Data Barang</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
+                {{-- isi menu data barang --}}
                 <div class="collapse" id="forms">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="pages/forms/basic-elements.html" class="nav-link">Basic Elements</a>
+                            <a href="pages/forms/basic-elements.html" class="nav-link">Produk Makanan</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/forms/advanced-elements.html" class="nav-link">Advanced
-                                Elements</a>
+                            <a href="pages/forms/advanced-elements.html" class="nav-link">Produk Minuman</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/forms/editors.html" class="nav-link">Editors</a>
+                            <a href="pages/forms/editors.html" class="nav-link">Obat-obatan</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/forms/wizard.html" class="nav-link">Wizard</a>
+                            <a href="pages/forms/wizard.html" class="nav-link">Lpg dan Galon</a>
                         </li>
                     </ul>
                 </div>
+                {{-- isi menu data barang end --}}
             </li>
+            {{-- menu data barang end--}}
+
+            {{-- menu spplier --}}
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#formssupplier" role="button" aria-expanded="false"
+                    aria-controls="forms">
+                    <i class="link-icon" data-feather="anchor"></i>
+                    <span class="link-title">Data Suppleir</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                {{-- isi menu data supplier --}}
+                <div class="collapse" id="formssupplier">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="pages/forms/basic-elements.html" class="nav-link">Supplier Pabrik</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/forms/advanced-elements.html" class="nav-link">Supplier Sales</a>
+                        </li>
+                    </ul>
+                </div>
+                {{-- isi menu data supplier end --}}
+            </li>
+            {{-- menu supplier end --}}
+
+
+            <li class="nav-item nav-category">MENU TRANSAKSI</li>
+            {{-- menu transaksi --}}
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#charts" role="button" aria-expanded="false"
                     aria-controls="charts">
                     <i class="link-icon" data-feather="pie-chart"></i>
-                    <span class="link-title">Charts</span>
+                    <span class="link-title">Transaksi</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
+                {{-- isi menu transaksi --}}
                 <div class="collapse" id="charts">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="pages/charts/apex.html" class="nav-link">Apex</a>
+                            <a href="pages/charts/apex.html" class="nav-link">Transaksi Jual</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/charts/chartjs.html" class="nav-link">ChartJs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/charts/flot.html" class="nav-link">Flot</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/charts/morrisjs.html" class="nav-link">Morris</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/charts/peity.html" class="nav-link">Peity</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/charts/sparkline.html" class="nav-link">Sparkline</a>
+                            <a href="pages/charts/chartjs.html" class="nav-link">Transaksi Beli</a>
                         </li>
                     </ul>
                 </div>
+                {{-- isi menu transaksi end --}}
             </li>
+            {{-- menu transaksi end --}}
+
+            
+            <li class="nav-item nav-category">MENU LAPORAN</li>
+            {{-- menu laporan --}}
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#tables" role="button" aria-expanded="false"
                     aria-controls="tables">
                     <i class="link-icon" data-feather="layout"></i>
-                    <span class="link-title">Table</span>
+                    <span class="link-title">Laporan</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
+                {{-- isi menu laporan --}}
                 <div class="collapse" id="tables">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="pages/tables/basic-table.html" class="nav-link">Basic Tables</a>
+                            <a href="pages/tables/basic-table.html" class="nav-link">Rekap Jual</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/tables/data-table.html" class="nav-link">Data Table</a>
+                            <a href="pages/tables/data-table.html" class="nav-link">Rekap Beli</a>
                         </li>
                     </ul>
                 </div>
+                {{-- isi menu laporan end--}}
             </li>
-            <li class="nav-item">
+            {{-- menu laporan end --}}
+            
+
+
+
+            {{-- <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#icons" role="button" aria-expanded="false"
                     aria-controls="icons">
                     <i class="link-icon" data-feather="smile"></i>
@@ -319,13 +278,13 @@
                     </ul>
                 </div>
             </li>
-            <li class="nav-item nav-category">Docs</li>
-            <li class="nav-item">
+            <li class="nav-item nav-category">Docs</li> --}}
+            {{-- <li class="nav-item">
                 <a href="https://www.nobleui.com/html/documentation/docs.html" target="_blank" class="nav-link">
                     <i class="link-icon" data-feather="hash"></i>
                     <span class="link-title">Documentation</span>
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </div>
 </nav>
