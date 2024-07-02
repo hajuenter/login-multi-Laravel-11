@@ -2,52 +2,7 @@
 @section('admin')
     <div class="page-content">
 
-        {{-- <div class="row">
-      <div class="col-12 grid-margin">
-        <div class="card">
-          <div class="position-relative">
-            <figure class="overflow-hidden mb-0 d-flex justify-content-center">
-              <img src="https://via.placeholder.com/1560x370"class="rounded-top" alt="profile cover">
-            </figure>
-            <div class="d-flex justify-content-between align-items-center position-absolute top-90 w-100 px-2 px-md-4 mt-n4">
-              <div>
-                <img class="wd-70 rounded-circle" src="https://via.placeholder.com/100x100" alt="profile">
-                <span class="h4 ms-3 text-dark">Amiah Burton</span>
-              </div>
-              <div class="d-none d-md-block">
-                <button class="btn btn-primary btn-icon-text">
-                  <i data-feather="edit" class="btn-icon-prepend"></i> Edit profile
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="d-flex justify-content-center p-3 rounded-bottom">
-            <ul class="d-flex align-items-center m-0 p-0">
-              <li class="d-flex align-items-center active">
-                <i class="me-1 icon-md text-primary" data-feather="columns"></i>
-                <a class="pt-1px d-none d-md-block text-primary" href="#">Timeline</a>
-              </li>
-              <li class="ms-3 ps-3 border-start d-flex align-items-center">
-                <i class="me-1 icon-md" data-feather="user"></i>
-                <a class="pt-1px d-none d-md-block text-body" href="#">About</a>
-              </li>
-              <li class="ms-3 ps-3 border-start d-flex align-items-center">
-                <i class="me-1 icon-md" data-feather="users"></i>
-                <a class="pt-1px d-none d-md-block text-body" href="#">Friends <span class="text-muted tx-12">3,765</span></a>
-              </li>
-              <li class="ms-3 ps-3 border-start d-flex align-items-center">
-                <i class="me-1 icon-md" data-feather="image"></i>
-                <a class="pt-1px d-none d-md-block text-body" href="#">Photos</a>
-              </li>
-              <li class="ms-3 ps-3 border-start d-flex align-items-center">
-                <i class="me-1 icon-md" data-feather="video"></i>
-                <a class="pt-1px d-none d-md-block text-body" href="#">Videos</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div> --}}
+      @include('_pesan')
         <div class="row profile-body">
             <!-- left wrapper start -->
             <div class="col-md-8 col-xl-9 left-wrapper">
@@ -58,45 +13,65 @@
 
                                 <h6 class="card-title">Profile Update</h6>
 
-                                <form class="forms-sample">
+                                <form class="forms-sample" method="POST" action="{{ url('admin_profile/update') }}"
+                                    enctype="multipart/form-data">
+                                    {{ csrf_field() }}
                                     <div class="mb-3">
                                         <label class="form-label">Name</label>
-                                        <input type="text" class="form-control" placeholder="Name" name="name">
+                                        <input type="text" class="form-control" placeholder="Name" name="name"
+                                            value="{{ $getRecord->name }}">
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="form-label">Username</label>
-                                        <input type="text" class="form-control" placeholder="Username" name="username">
+                                        <input type="text" class="form-control" placeholder="Username" name="username"
+                                            value="{{ $getRecord->username }}">
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="form-label">Email</label>
-                                        <input type="email" class="form-control" placeholder="Email" name="email">
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label class="form-label">Address</label>
-                                        <input type="text" class="form-control" placeholder="Address" name="address">
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <label class="form-label">Website</label>
-                                        <input type="text" class="form-control" placeholder="Website" name="website">
+                                        <input type="email" class="form-control" placeholder="Email" name="email"
+                                            value="{{ $getRecord->email }}">
+                                            <span style="color: red;">{{ $errors->first('email') }}</span>
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="form-label">Password</label>
                                         <input type="password" class="form-control" placeholder="Password" name="password">
+                                        Biarkan password kosong jika tidak ingin mengganti password !!!
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="form-label">Foto Profile</label>
                                         <input type="file" class="form-control" name="photo">
+                                        @if(!@empty($getRecord->photo))
+
+                                        <img src="{{ asset('uploud/'. $getRecord->photo) }}" style="width: 10%; height: 10%;">
+
+                                        @endif
+                                      </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Phone</label>
+                                        <input type="text" class="form-control" placeholder="Phone" name="phone"
+                                            value="{{ $getRecord->phone }}">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Address</label>
+                                        <input type="text" class="form-control" placeholder="Address" name="address"
+                                            value="{{ $getRecord->address }}">
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="form-label">About</label>
-                                        <textarea name="about" type="text" placeholder="About" class="form-control"></textarea>
+                                        <textarea name="about" type="text" placeholder="About" class="form-control">{{ $getRecord->about }}</textarea>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Website</label>
+                                        <input type="text" class="form-control" placeholder="Website" name="website"
+                                            value="{{ $getRecord->website }}">
                                     </div>
 
                                     <button type="submit" class="btn btn-primary me-2">Submit</button>
@@ -154,6 +129,7 @@
                 </div>
             </div>
             <!-- middle wrapper end -->
+
         </div>
     </div>
 @endsection
