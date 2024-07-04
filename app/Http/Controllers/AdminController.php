@@ -15,7 +15,7 @@ class AdminController extends Controller
     public function AdminDashboard(Request $request) {
         //mengembalikan atau memberi view dengan mengambil
         //di resource lalu views lalu folder admin lalu buat file
-        //dengan nama admin_dashboard.blade.php
+        //dengan nama index.blade.php yang mengambil secsion dari admin
         return view('admin.index');
     }
 
@@ -76,6 +76,12 @@ class AdminController extends Controller
         // echo "string"; die();
         $data['getRecord'] = User::getRecord();
         return view('admin.users.list', $data);
+    }
+
+    public function admin_users_view() {
+        // echo "string";die();
+
+        return view('admin.users.view');
     }
 
 }
