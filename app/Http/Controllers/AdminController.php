@@ -78,10 +78,10 @@ class AdminController extends Controller
         return view('admin.users.list', $data);
     }
 
-    public function admin_users_view() {
+    public function admin_users_view($id) {
         // echo "string";die();
-
-        return view('admin.users.view');
+        $dataView['getRecord'] = User::find($id);
+        return view('admin.users.view', $dataView);
     }
 
 }

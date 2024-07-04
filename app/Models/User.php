@@ -45,7 +45,7 @@ class User extends Authenticatable
         $return = self::select('users.*')
         ->orderBy('id', 'asc');
 
-        $return = $return->paginate(4);
+        $return = $return->paginate(5);
         return $return;
     }
 }

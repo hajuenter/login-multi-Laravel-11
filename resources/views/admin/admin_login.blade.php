@@ -49,7 +49,7 @@
                             <div class="row">
                                 <div class="col-md-4 pe-md-0">
                                     <div class="auth-side-wrapper">
-
+                                        {{-- taruh foto --}}
                                     </div>
                                 </div>
                                 <div class="col-md-8 ps-md-0">
