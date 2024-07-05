@@ -246,7 +246,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline mb-0">
-                                    <h6 class="card-title mb-0">Monthly sales</h6>
+                                    <h6 class="card-title mb-0">Monthly User</h6>
                                     <div class="dropdown mb-2">
                                         <a type="button" id="dropdownMenuButton4" data-bs-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false">
@@ -273,7 +273,7 @@
                                 </div>
                                 <p class="text-muted">Sales are activities related to selling or the number of goods or
                                     services sold in a given time period.</p>
-                                <div id="monthlySalesChart"></div>
+                                <div id="monthlyUserChart"></div>
                             </div>
                         </div>
                     </div>
@@ -547,4 +547,127 @@
                 </div> <!-- row -->
 </div>
             
+@endsection
+
+@section('script_diagram')
+<script type="text/javascript">
+
+$(function() {
+  'use strict'
+
+
+
+  var colors = {
+    primary        : "#6571ff",
+    secondary      : "#7987a1",
+    success        : "#05a34a",
+    info           : "#66d1d1",
+    warning        : "#fbbc06",
+    danger         : "#ff3366",
+    light          : "#e9ecef",
+    dark           : "#060c17",
+    muted          : "#7987a1",
+    gridBorder     : "rgba(77, 138, 240, .15)",
+    bodyColor      : "#000",
+    cardBg         : "#fff"
+  }
+
+  var fontFamily = "'Roboto', Helvetica, sans-serif"
+    
+  // Monthly Sales Chart
+  if($('#monthlyUserChart').length) {
+    var options = {
+      chart: {
+        type: 'bar',
+        height: '318',
+        parentHeightOffset: 0,
+        foreColor: colors.bodyColor,
+        background: colors.cardBg,
+        toolbar: {
+          show: false
+        },
+      },
+      theme: {
+        mode: 'light'
+      },
+      tooltip: {
+        theme: 'light'
+      },
+      colors: [colors.primary],  
+      fill: {
+        opacity: .9
+      } , 
+      grid: {
+        padding: {
+          bottom: -4
+        },
+        borderColor: colors.gridBorder,
+        xaxis: {
+          lines: {
+            show: true
+          }
+        }
+      },
+      series: [{
+        name: 'Users',
+        data: @json($counts)
+      }],
+      xaxis: {
+        type: 'datetime',
+        categories: @json($months),
+        axisBorder: {
+          color: colors.gridBorder,
+        },
+        axisTicks: {
+          color: colors.gridBorder,
+        },
+      },
+      yaxis: {
+        title: {
+          text: 'Number of Sales',
+          style:{
+            size: 9,
+            color: colors.muted
+          }
+        },
+      },
+      legend: {
+        show: true,
+        position: "top",
+        horizontalAlign: 'center',
+        fontFamily: fontFamily,
+        itemMargin: {
+          horizontal: 8,
+          vertical: 0
+        },
+      },
+      stroke: {
+        width: 0
+      },
+      dataLabels: {
+        enabled: true,
+        style: {
+          fontSize: '10px',
+          fontFamily: fontFamily,
+        },
+        offsetY: -27
+      },
+      plotOptions: {
+        bar: {
+          columnWidth: "50%",
+          borderRadius: 4,
+          dataLabels: {
+            position: 'top',
+            orientation: 'vertical',
+          }
+        },
+      },
+    }
+    
+    var apexBarChart = new ApexCharts(document.querySelector("#monthlyUserChart"), options);
+    apexBarChart.render();
+  }
+  // Monthly Sales Chart - END
+});
+</script>
 @endsection

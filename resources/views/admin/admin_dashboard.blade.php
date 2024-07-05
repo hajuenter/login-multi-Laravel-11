@@ -76,8 +76,14 @@
     <!-- endinject -->
 
     <!-- Custom js for this page -->
-    <script src="{{ asset('assets/js/dashboard-dark.js') }}"></script>
+    <script src="{{ asset('assets/js/dashboard-light.js') }}"></script>
     <!-- End custom js for this page -->
+
+@yield('script_diagram')
+<script type="text/javascript"> 
+
+</script>
+
 
 </body>
 

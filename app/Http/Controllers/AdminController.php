@@ -7,17 +7,28 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
     //membuat class yang di akan dipanggil oleh route ketika 
     //yang login adalah admin
     public function AdminDashboard(Request $request) {
-        //mengembalikan atau memberi view dengan mengambil
-        //di resource lalu views lalu folder admin lalu buat file
-        //dengan nama index.blade.php yang mengambil secsion dari admin
-        return view('admin.index');
+        // Gunakan DB facade untuk membangun query
+        $userDiagram = DB::table('users')
+            ->selectRaw('count(id) as count, DATE_FORMAT(created_at, "%Y-%M") as month')
+            ->groupBy('month')
+            ->orderBy('month', 'asc')
+            ->get();
+    
+        // Siapkan data untuk dilewatkan ke view
+        $data_diagram['months'] = $userDiagram->pluck('month');
+        $data_diagram['counts'] = $userDiagram->pluck('count');
+    
+        // Kembalikan view dengan data yang diperlukan
+        return view('admin.index', $data_diagram);
     }
+    
 
     public function AdminLogout(Request $request) {
         Auth::guard('web')->logout();
