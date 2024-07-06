@@ -11,7 +11,7 @@
     <meta name="keywords"
         content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
-    <title>Hajuenter Dashboard</title>
+    <title>Hajuenter Kasir</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -80,9 +80,7 @@
     <!-- End custom js for this page -->
 
 @yield('script_diagram')
-<script type="text/javascript"> 
 
-</script>
 
 
 </body>

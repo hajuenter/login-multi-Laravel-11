@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AgentController;
+use App\Http\Controllers\PesanController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -34,6 +35,10 @@ Route::post('admin_profile/update', [AdminController::class, 'admin_profile_upda
 Route::get('admin/users', [AdminController::class, 'admin_users']);
 
 Route::get('admin/users/view/{id}', [AdminController::class, 'admin_users_view']);
+
+Route::get('admin/pesan/compose', [PesanController::class, 'pesan_compose']);
+
+Route::post('admin/pesan/compose_post', [PesanController::class, 'pesan_compose_post']);
 
 });
 

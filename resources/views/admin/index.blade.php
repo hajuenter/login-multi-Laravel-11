@@ -554,9 +554,6 @@
 
 $(function() {
   'use strict'
-
-
-
   var colors = {
     primary        : "#6571ff",
     secondary      : "#7987a1",
@@ -574,7 +571,7 @@ $(function() {
 
   var fontFamily = "'Roboto', Helvetica, sans-serif"
     
-  // Monthly Sales Chart
+  // Monthly User Chart
   if($('#monthlyUserChart').length) {
     var options = {
       chart: {
@@ -667,7 +664,7 @@ $(function() {
     var apexBarChart = new ApexCharts(document.querySelector("#monthlyUserChart"), options);
     apexBarChart.render();
   }
-  // Monthly Sales Chart - END
+  // Monthly User Chart - END
 });
 </script>
 @endsection
