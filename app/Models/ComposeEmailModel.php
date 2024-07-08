@@ -11,6 +11,6 @@ class ComposeEmailModel extends Model {
 
     protected $table = 'compose_email'; //nama tabel yang ada di database
 
-    // public $timestamps = false; // menonaktifkan timestamps
+    // public $timestamps = false; // menonaktifkan timestamps default 
 
 }

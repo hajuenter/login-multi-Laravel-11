@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\ComposeEmailModel;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ComposeEmailMail;
 
 class PesanController extends Controller {
 
@@ -24,6 +26,11 @@ class PesanController extends Controller {
         $save->subject = trim($request->subject);
         $save->deskripsi = trim($request->deskripsi);
         $save->save();
+
+        //email start
+        $getUserEmail = User::where('id', '=', $request->user_id)->first();
+        Mail::to($getUserEmail->email)->cc($request->cc_email)->send(new ComposeEmailMail($save));
+        //email end
 
         return redirect('admin/pesan/compose')->with('success', 'Pesan sukses terkirim');
     }
