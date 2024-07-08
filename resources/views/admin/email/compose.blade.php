@@ -102,7 +102,7 @@
                                             <div class="row mb-3">
                                                 <label class="col-md-2 col-form-label">To:</label>
                                                 <div class="col-md-10">
-                                                    <select class="compose-multiple-select form-select" name="user_id"> 
+                                                    <select class="compose-multiple-select form-select" name="user_id" required> 
                                                         {{-- <option value="AL"></option> --}}
                                                         @foreach ($getEmail as $value)
                                                             <option value="{{ $value->id }}">{{ $value->email }} - {{ $value->role }}</option>
@@ -115,7 +115,7 @@
                                             <div class="row mb-3">
                                                 <label class="col-md-2 col-form-label">Cc</label>
                                                 <div class="col-md-10">
-                                                    <input type="text" name="cc_email" class="form-control">
+                                                    <input type="text" name="cc_email" class="form-control" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -123,7 +123,7 @@
                                             <div class="row mb-3">
                                                 <label class="col-md-2 col-form-label">Subject</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="text" name="subject">
+                                                    <input class="form-control" type="text" name="subject" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -133,7 +133,7 @@
                                             <div class="mb-3">
                                                 <label class="form-label visually-hidden">Descriptions
                                                 </label>
-                                                <textarea class="form-control" name="deskripsi" rows="5"></textarea>
+                                                <textarea class="form-control" name="deskripsi" rows="5" required></textarea>
                                             </div>
                                         </div>
                                         <div>
