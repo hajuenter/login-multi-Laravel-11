@@ -6,4 +6,5 @@ Subject : -   <b>{{ $save->subject }}</b>
 Deskripsi : -   <b>{{ $save->deskripsi }}</b>
 
 <br>
+<br>
 Terimakasih @copyright2024 shusui_songolas

@@ -40,6 +40,8 @@ Route::get('admin/pesan/compose', [PesanController::class, 'pesan_compose']);
 
 Route::post('admin/pesan/compose_post', [PesanController::class, 'pesan_compose_post']);
 
+Route::get('admin/pesan/kirim', [PesanController::class, 'pesan_kirim']);
+
 });
 
 Route::middleware(['auth', 'role:agent'])->group(function(){

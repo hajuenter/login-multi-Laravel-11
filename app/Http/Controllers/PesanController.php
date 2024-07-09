@@ -35,4 +35,11 @@ class PesanController extends Controller {
         return redirect('admin/pesan/compose')->with('success', 'Pesan sukses terkirim');
     }
 
+    public function pesan_kirim(Request $request) {
+        // echo "coba";die();
+        $datainbox['getRecord'] = ComposeEmailModel::get();
+        return view('admin.email.inbox', $datainbox);
+
+    }
+
 }
