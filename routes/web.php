@@ -42,6 +42,8 @@ Route::post('admin/pesan/compose_post', [PesanController::class, 'pesan_compose_
 
 Route::get('admin/pesan/kirim', [PesanController::class, 'pesan_kirim']);
 
+Route::get('admin/pesan_kirim', [PesanController::class, 'admin_email_kirim_hapus']);
+
 });
 
 Route::middleware(['auth', 'role:agent'])->group(function(){

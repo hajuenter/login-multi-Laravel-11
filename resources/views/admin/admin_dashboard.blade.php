@@ -79,7 +79,7 @@
     <script src="{{ asset('assets/js/dashboard-light.js') }}"></script>
     <!-- End custom js for this page -->
 
-@yield('script_diagram')
+@yield('script')
 
 
 

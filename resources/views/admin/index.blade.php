@@ -549,7 +549,7 @@
             
 @endsection
 
-@section('script_diagram')
+@section('script')
 <script type="text/javascript">
 
 $(function() {

@@ -42,4 +42,16 @@ class PesanController extends Controller {
 
     }
 
+    public function admin_email_kirim_hapus(Request $request) {
+        if (!empty($request->id)) {
+            $option = explode(',', $request->id);
+            foreach ($option as $id) {
+                if (!empty($id)) {
+                    $getRecord = ComposeEmailModel::find($id);
+                    $getRecord->delete();
+                    }
+                }
+            }
+        return redirect()->back()->with('success', 'Pesan berhasil dihapus');
+    }
 }
