@@ -7,7 +7,9 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-lg-3 border-end-lg">
+
+                            @include('admin.email._sidebarEmail')
+                            {{-- <div class="col-lg-3 border-end-lg">
                                 <div class="aside-content">
                                     <div class="d-flex align-items-center justify-content-between">
                                         <button class="navbar-toggle btn btn-icon border d-block d-lg-none"
@@ -88,7 +90,8 @@
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
+
                             <div class="col-lg-9">
                                 <div class="d-flex align-items-center justify-content-between p-3 border-bottom tx-16">
                                     <div class="d-flex align-items-center">

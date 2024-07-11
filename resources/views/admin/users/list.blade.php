@@ -8,6 +8,92 @@
             </ol>
         </nav>
 
+        {{-- start cari user --}}
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card mb-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title">Cari User</h6>
+                        <form method="get" action="">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="mb-3">
+                                        <label class="form-label">Id</label>
+                                        <input type="text" name="id" value="{{ Request()->id }}"
+                                            class="form-control" placeholder="Masukkan id">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="mb-3">
+                                        <label class="form-label">Name</label>
+                                        <input type="text" name="name" value="{{ Request()->name }}"
+                                            class="form-control" placeholder="Masukkan name">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="mb-3">
+                                        <label class="form-label">Username</label>
+                                        <input type="text" name="username" value="{{ Request()->username }}"
+                                            class="form-control" placeholder="Masukkan username">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="mb-3">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" name="email" value="{{ Request()->email }}"
+                                            class="form-control" placeholder="Masukkan email">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="mb-3">
+                                        <label class="form-label">Phone</label>
+                                        <input type="text" name="phone" value="{{ Request()->phone }}"
+                                            class="form-control" placeholder="Masukkan no hp">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="mb-3">
+                                        <label class="form-label">Website</label>
+                                        <input type="text" name="website" value="{{ Request()->website }}"
+                                            class="form-control" placeholder="Masukkan website">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="mb-3">
+                                        <label class="form-label">Role</label>
+                                        <select class="form-control" name="role">
+                                            <option value="">Pilih role</option>
+                                            <option value="admin" {{ Request()->role == 'admin' ? 'selected' : '' }}>Admin
+                                            </option>
+                                            <option value="agent" {{ Request()->role == 'agent' ? 'selected' : '' }}>Agent
+                                            </option>
+                                            <option value="user" {{ Request()->role == 'user' ? 'selected' : '' }}>User
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="mb-3">
+                                        <label class="form-label">Status</label>
+                                        <select class="form-control" name="status">
+                                            <option value="">Pilih status</option>
+                                            <option value="active" {{ Request()->status == 'active' ? 'selected' : '' }}>
+                                                Active</option>
+                                            <option value="inactive"
+                                                {{ Request()->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Cari</button>
+                            <a href="{{ url('admin/users') }}" class="btn btn-danger">Reset</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- end cari user --}}
+
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
@@ -31,7 +117,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($getRecord as $value)
+                                    @forelse ($getRecord as $value)
                                         <tr>
                                             <th>{{ $value->id }}</th>
                                             <td>{{ $value->name }}</td>
@@ -63,7 +149,8 @@
                                             </td>
                                             <td>{{ date('d-m-Y', strtotime($value->created_at)) }}</td>
                                             <td>
-                                                <a class="dropdown-item d-flex align-items-center" href="{{ url('admin/users/view/' .$value->id) }}"><svg
+                                                <a class="dropdown-item d-flex align-items-center"
+                                                    href="{{ url('admin/users/view/' . $value->id) }}"><svg
                                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -73,7 +160,11 @@
                                                     </svg> <span>View</span></a>
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    @empty
+                                        <tr>
+                                            <td colspan="100%">Data tidak ditemukan !!!</td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>

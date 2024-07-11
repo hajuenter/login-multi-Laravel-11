@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 
+
 class AdminController extends Controller
 {
     //membuat class yang di akan dipanggil oleh route ketika 
@@ -85,10 +86,10 @@ class AdminController extends Controller
 
     public function admin_users(Request $request) {
         // echo "string"; die();
-        $data['getRecord'] = User::getRecord();
+        $data['getRecord'] = User::getRecord($request);
         return view('admin.users.list', $data);
     }
-
+    
     public function admin_users_view($id) {
         // echo "string";die();
         $dataView['getRecord'] = User::find($id);

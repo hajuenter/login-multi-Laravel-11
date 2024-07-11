@@ -14,7 +14,7 @@
                   </button>
                   <div class="order-first">
                     <h4>Mail Service</h4>
-                    <p class="text-muted">amiahburton@gmail.com</p>
+                    <p class="text-muted">{{ Auth::user()->email }}</p>
                   </div>
                 </div>
                 <div class="d-grid my-3">
