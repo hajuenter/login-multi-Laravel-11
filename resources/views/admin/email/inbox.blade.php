@@ -23,7 +23,7 @@
                 <div class="email-aside-nav collapse">
                   <ul class="nav flex-column">
                     <li class="nav-item active">
-                      <a class="nav-link d-flex align-items-center" href="../email/inbox.html">
+                      <a class="nav-link d-flex align-items-center" href="{{ url('admin/pesan/kirim') }}">
                         <i data-feather="inbox" class="icon-lg me-2"></i>
                         Inbox
                         <span class="badge bg-danger fw-bolder ms-auto">2
@@ -149,7 +149,7 @@
                             </div>
                             <a class="favorite" href="javascript:;"><span><i data-feather="star"></i></span></a>
                         </div>
-                        <a href="./read.html" class="email-list-detail">
+                        <a href="{{ url('admin/pesan/baca/'.$value->id) }}" class="email-list-detail">
                             <div class="content">
                                 <span class="from">{{ $value->subject }}</span>
                                 <p class="msg">{{ $value->deskripsi }}</p>

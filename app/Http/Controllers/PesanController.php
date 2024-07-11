@@ -54,4 +54,23 @@ class PesanController extends Controller {
             }
         return redirect()->back()->with('success', 'Pesan berhasil dihapus');
     }
+
+    public function admin_pesan_baca($id, Request $request) {
+        //echo $id;die();
+        $datapesan['getRecord'] = ComposeEmailModel::find($id);
+        return view('admin.email.read', $datapesan);
+    }
+
+    public function admin_pesan_baca_hapus($id, Request $request) {
+        $hapusbacapesan = ComposeEmailModel::find($id);
+    
+        if (!$hapusbacapesan) {
+            return redirect()->back()->with('error', 'Pesan tidak ditemukan.');
+        }
+    
+        $hapusbacapesan->delete();
+    
+        return redirect('admin/pesan/kirim')->with('success', 'Pesan berhasil dihapus');
+    }
+
 }

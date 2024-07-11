@@ -44,6 +44,10 @@ Route::get('admin/pesan/kirim', [PesanController::class, 'pesan_kirim']);
 
 Route::get('admin/pesan_kirim', [PesanController::class, 'admin_email_kirim_hapus']);
 
+Route::get('admin/pesan/baca/{id}', [PesanController::class, 'admin_pesan_baca']);
+
+Route::get('admin/pesan/baca_delete/{id}', [PesanController::class, 'admin_pesan_baca_hapus']);
+
 });
 
 Route::middleware(['auth', 'role:agent'])->group(function(){
