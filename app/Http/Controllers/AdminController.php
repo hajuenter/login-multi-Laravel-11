@@ -96,4 +96,9 @@ class AdminController extends Controller
         return view('admin.users.view', $dataView);
     }
 
+    public function admin_users_add(Request $request) {
+        // echo "coba";die();
+        return view('admin.users.add_users');
+    }
+
 }

@@ -36,6 +36,8 @@ Route::get('admin/users', [AdminController::class, 'admin_users']);
 
 Route::get('admin/users/view/{id}', [AdminController::class, 'admin_users_view']);
 
+Route::get('admin/users/add', [AdminController::class, 'admin_users_add']);
+
 Route::get('admin/pesan/compose', [PesanController::class, 'pesan_compose']);
 
 Route::post('admin/pesan/compose_post', [PesanController::class, 'pesan_compose_post']);

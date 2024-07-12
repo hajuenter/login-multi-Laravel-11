@@ -3,7 +3,7 @@
     <div class="page-content">
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Role</a></li>
+                <li class="breadcrumb-item"><a href="{{ url('admin/users') }}">Role</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Users Role</li>
             </ol>
         </nav>
@@ -98,6 +98,12 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap">
+                            <h4>Data User</h4>
+                            <div class="d-flex align-items-center">
+                                <a href="{{ url('admin/users/add') }}" class="btn btn-primary">Tambah User</a>
+                            </div>
+                        </div>
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
