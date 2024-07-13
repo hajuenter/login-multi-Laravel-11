@@ -36,7 +36,7 @@
                             <a href="{{ url('admin/pesan/kirim') }}" class="nav-link">Inbox</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('admin/pesan/compose') }}" class="nav-link">Compose</a>
+                            <a href="{{ url('admin/pesan/compose') }}" class="nav-link">Sent</a>
                         </li>
                     </ul>
                 </div>

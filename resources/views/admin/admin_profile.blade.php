@@ -12,44 +12,44 @@
                             <h6 class="card-title mb-0">About</h6>
                         </div>
                         <p>{{ Auth::user()->about }}</p>
-                        <div class="mt-3">
+                        <div class="mt-2">
                             <label class="tx-11 fw-bolder mb-0 text-uppercase">Name :</label>
                             <p class="text-muted">{{ Auth::user()->name }}</p>
                         </div>
-                        <div class="mt-3">
+                        <div class="mt-2">
                             <label class="tx-11 fw-bolder mb-0 text-uppercase">Username :</label>
                             <p class="text-muted">{{ Auth::user()->username }}</p>
                         </div>
 
-                        <div class="mt-3">
+                        <div class="mt-2">
                             <label class="tx-11 fw-bolder mb-0 text-uppercase">Email :</label>
                             <p class="text-muted">{{ Auth::user()->email }}</p>
                         </div>
 
-                        <div class="mt-3">
+                        <div class="mt-2">
                             <label class="tx-11 fw-bolder mb-0 text-uppercase">Phone :</label>
                             <p class="text-muted">{{ Auth::user()->phone }}</p>
                         </div>
-                        <div class="mt-3">
+                        <div class="mt-2">
                             <label class="tx-11 fw-bolder mb-0 text-uppercase">Address :</label>
                             <p class="text-muted">{{ Auth::user()->address }}</p>
                         </div>
 
-                        <div class="mt-3">
+                        <div class="mt-2">
                             <label class="tx-11 fw-bolder mb-0 text-uppercase">Website :</label>
                             <p class="text-muted">{{ Auth::user()->website }}</p>
                         </div>
 
-                        <div class="mt-3">
+                        <div class="mt-2">
                             <label class="tx-11 fw-bolder mb-0 text-uppercase">Join :</label>
                             <p class="text-muted">{{ date('d-m-Y', strtotime(Auth::user()->created_at)) }}</p>
                         </div>
 
-                        <div class="mt-3">
+                        {{-- <div class="mt-3">
                             @if (!empty($getRecord->photo))
                                 <img src="{{ asset('uploud/' . $getRecord->photo) }}" class="img-fluid rounded" style="max-width: 100%; height: auto;">
                             @endif
-                        </div>
+                        </div> --}}
 
                         <div class="mt-3 d-flex social-links">
                             <a href="https://github.com/hajuenter" target="_blank" class="btn btn-icon border btn-xs me-2">
@@ -79,32 +79,32 @@
                                 <form class="forms-sample" method="POST" action="{{ url('admin_profile/update') }}"
                                     enctype="multipart/form-data">
                                     {{ csrf_field() }}
-                                    <div class="mb-3">
+                                    <div class="mb-2">
                                         <label class="form-label">Name</label>
                                         <input type="text" class="form-control" placeholder="Name" name="name"
                                             value="{{ $getRecord->name }}">
                                     </div>
 
-                                    <div class="mb-3">
+                                    <div class="mb-2">
                                         <label class="form-label">Username</label>
                                         <input type="text" class="form-control" placeholder="Username" name="username"
                                             value="{{ $getRecord->username }}">
                                     </div>
 
-                                    <div class="mb-3">
+                                    <div class="mb-2">
                                         <label class="form-label">Email</label>
                                         <input type="email" class="form-control" placeholder="Email" name="email"
                                             value="{{ $getRecord->email }}">
                                         <span style="color: red;">{{ $errors->first('email') }}</span>
                                     </div>
 
-                                    <div class="mb-3">
+                                    <div class="mb-2">
                                         <label class="form-label">Password</label>
                                         <input type="password" class="form-control" placeholder="Password" name="password">
-                                        Biarkan password kosong jika tidak ingin mengganti password !!!
+                                        <span style="color: red;">*Biarkan password kosong jika tidak ingin mengganti password !!!</span>
                                     </div>
 
-                                    <div class="mb-3">
+                                    <div class="mb-2">
                                         <label class="form-label">Foto Profile</label>
                                         <input type="file" class="form-control mb-2" name="photo">
                                         @if (!@empty($getRecord->photo))
@@ -113,24 +113,24 @@
                                         @endif
                                     </div>
 
-                                    <div class="mb-3">
+                                    <div class="mb-2">
                                         <label class="form-label">Phone</label>
                                         <input type="text" class="form-control" placeholder="Phone" name="phone"
                                             value="{{ $getRecord->phone }}">
                                     </div>
 
-                                    <div class="mb-3">
+                                    <div class="mb-2">
                                         <label class="form-label">Address</label>
                                         <input type="text" class="form-control" placeholder="Address" name="address"
                                             value="{{ $getRecord->address }}">
                                     </div>
 
-                                    <div class="mb-3">
+                                    <div class="mb-2">
                                         <label class="form-label">About</label>
                                         <textarea name="about" type="text" placeholder="About" class="form-control">{{ $getRecord->about }}</textarea>
                                     </div>
 
-                                    <div class="mb-3">
+                                    <div class="mb-2">
                                         <label class="form-label">Website</label>
                                         <input type="text" class="form-control" placeholder="Website" name="website"
                                             value="{{ $getRecord->website }}">

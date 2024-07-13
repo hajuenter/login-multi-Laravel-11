@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="d-grid my-3">
-            <a class="btn btn-primary" href="{{ url('admin/pesan/compose') }}">Compose Email</a>
+            <a class="btn btn-primary" href="{{ url('admin/pesan/compose') }}">Sent Email</a>
         </div>
         <div class="email-aside-nav collapse">
             <ul class="nav flex-column">

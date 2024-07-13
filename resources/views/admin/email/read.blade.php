@@ -8,8 +8,8 @@
                     <div class="card-body">
                         <div class="row">
 
-                            @include('admin.email._sidebarEmail')
-                            {{-- <div class="col-lg-3 border-end-lg">
+                            {{-- @include('admin.email._sidebarEmail') --}}
+                            <div class="col-lg-3 border-end-lg">
                                 <div class="aside-content">
                                     <div class="d-flex align-items-center justify-content-between">
                                         <button class="navbar-toggle btn btn-icon border d-block d-lg-none"
@@ -18,11 +18,11 @@
                                         </button>
                                         <div class="order-first">
                                             <h4>Mail Service</h4>
-                                            <p class="text-muted">amiahburton@gmail.com</p>
+                                            <p class="text-muted">{{ Auth::user()->email }}</p>
                                         </div>
                                     </div>
                                     <div class="d-grid my-3">
-                                        <a class="btn btn-primary" href="{{ url('admin/pesan/compose') }}">Compose Email</a>
+                                        <a class="btn btn-primary" href="{{ url('admin/pesan/compose') }}">Sent Email</a>
                                     </div>
                                     <div class="email-aside-nav collapse">
                                         <ul class="nav flex-column">
@@ -90,7 +90,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                            </div> --}}
+                            </div>
 
                             <div class="col-lg-9">
                                 <div class="d-flex align-items-center justify-content-between p-3 border-bottom tx-16">

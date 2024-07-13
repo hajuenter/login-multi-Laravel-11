@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ResetPassword as RequestsResetPassword;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -145,8 +146,43 @@ class AdminController extends Controller
         $newUser->save();
 
         Mail::to($newUser->email)->send(new RegisteredMail($newUser));
-
+        
         // Redirect dengan pesan sukses
         return redirect('admin/users/add')->with('success', 'User berhasil ditambahkan');
     }
+
+    public function set_password_baru($token) {
+        //cek token
+        //echo $token;die();
+        $datatoken['token'] = $token;
+        return view('auth.set_password_baru', $datatoken);
+    }
+
+    // public function set_password_baru_post($token, $request ResetPassword) {
+    //     $user = User::where('remember_token', '=', $token)->first();
+    //     if($user->count() == 0) {
+    //         about(403);
+    //     } 
+    //     $user = $user->first();
+    //     $user->password = Hash::make($request->password);
+    //     $user->rememberToken = Str::random(50);
+    //     $user->status = 'active';
+        
+    //     return redirect('admin/login')->with('success', 'Password baru berhasil di tambahkan');
+    // }
+    public function set_password_baru_post($token, RequestsResetPassword $request) {
+        $user = User::where('remember_token', $token)->first();
+    
+        if(!$user) {
+            abort(403);
+        }
+    
+        $user->password = Hash::make($request->password);
+        $user->remember_token = Str::random(50);
+        $user->status = 'active'; // Ubah status jika diperlukan (misalnya dari 'pending' ke 'active')
+        $user->save();
+    
+        return redirect('admin/login')->with('success', 'Password baru berhasil ditambahkan');
+    }
+    
 }
