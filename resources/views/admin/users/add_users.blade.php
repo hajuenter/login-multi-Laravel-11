@@ -27,7 +27,7 @@
                                 <label class="col-sm-3 col-form-label">Username <span style="color: red;">*</span></label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" name="username" required placeholder="Username" value="{{ old('username') }}">
-                                    <span style="color: red;">{{ $errors->first('username') }}</span>
+                                    {{-- <span style="color: red;">{{ $errors->first('username') }}</span> --}}
                                 </div>
                             </div>
                             <div class="row mb-3">

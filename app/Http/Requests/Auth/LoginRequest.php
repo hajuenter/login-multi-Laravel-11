@@ -28,7 +28,7 @@ class LoginRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        return [ 
             'login' => ['required', 'string'],
             'password' => ['required', 'string'],
         ];
@@ -42,10 +42,10 @@ class LoginRequest extends FormRequest
     public function authenticate(): void
     {
         $this->ensureIsNotRateLimited();
-
+        //login dengan email, name, phone jika komen di bawah saya aktifkan
         $user= User::where('email', $this->login)
-        ->orWhere('name', $this->login)
-        ->orWhere('phone', $this->login)
+        // ->orWhere('name', $this->login)
+        // ->orWhere('phone', $this->login)
         ->first();
 
         if (!$user || !hash::check($this->password, $user->password)) {

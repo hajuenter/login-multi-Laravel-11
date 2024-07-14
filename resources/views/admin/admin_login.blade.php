@@ -58,7 +58,7 @@
                                         <form class="forms-sample" method="POST" action="{{ route('login') }}">
                                             @csrf
                                             <div class="mb-3">
-                                                <label for="login" class="form-label">Email/Name/Phone</label>
+                                                <label for="login" class="form-label">Email</label>
                                                 <input type="text" name="login" class="form-control" id="login"
                                                     placeholder="Email/Name/Phone" value="{{ old('login') }}" required>
                                                     <span style="color: red">{{ $errors->first('login') }}</span>
