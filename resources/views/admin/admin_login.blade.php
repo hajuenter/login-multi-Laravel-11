@@ -60,7 +60,7 @@
                                             <div class="mb-3">
                                                 <label for="login" class="form-label">Email</label>
                                                 <input type="text" name="login" class="form-control" id="login"
-                                                    placeholder="Email/Name/Phone" value="{{ old('login') }}" required>
+                                                    placeholder="Email" value="{{ old('login') }}" required>
                                                     <span style="color: red">{{ $errors->first('login') }}</span>
                                             </div>
                                             <div class="mb-3">
@@ -69,12 +69,12 @@
                                                     autocomplete="password" placeholder="Password" required>
                                                     <span style="color: red">{{ $errors->first('password') }}</span>
                                             </div>
-                                            <div class="form-check mb-3">
+                                            {{-- <div class="form-check mb-3">
                                                 <input type="checkbox" class="form-check-input" id="authCheck">
                                                 <label class="form-check-label" for="authCheck">
                                                     Remember me
                                                 </label>
-                                            </div>
+                                            </div> --}}
                                             <div>
                                                 <button type="submit"
                                                     class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0">

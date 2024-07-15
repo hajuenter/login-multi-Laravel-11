@@ -171,4 +171,45 @@ class AdminController extends Controller
     
         return redirect('admin/login')->with('success', 'Password baru berhasil ditambahkan'); // Redirect ke halaman admin/login dengan pesan sukses
     }
+
+    public function admin_users_edit($id) {
+        //echo $id;die();
+        $dataEdit['getData'] = User::find($id);
+        return view('admin.users.edit', $dataEdit);
+    }
+
+    public function admin_users_edit_post($id, Request $request) {
+        // Ambil data pengguna berdasarkan ID
+        $saveEdit = User::find($id);
+    
+        // Simpan data dari form ke model User
+        $saveEdit->name = trim($request->name);
+        $saveEdit->username = trim($request->username);
+        $saveEdit->email = trim($request->email);
+        $saveEdit->phone = trim($request->phone);
+        $saveEdit->role = trim($request->role);
+        $saveEdit->status = trim($request->status);
+    
+        // Validasi email dan phone baru
+        $existingEmail = User::where('email', $request->email)
+                             ->where('id', '!=', $id)
+                             ->exists();
+        $existingPhone = User::where('phone', $request->phone)
+                             ->where('id', '!=', $id)
+                             ->exists();
+    
+        if ($existingEmail) {
+            return redirect()->back()->with('error', 'Email sudah terdaftar.');
+        }
+    
+        if ($existingPhone) {
+            return redirect()->back()->with('error', 'Nomor telepon sudah terdaftar.');
+        }
+    
+        // Simpan perubahan jika tidak ada konflik
+        $saveEdit->save();
+    
+        return redirect('admin/users')->with('success', 'Pengguna berhasil di edit');
+    }
+    
 }
