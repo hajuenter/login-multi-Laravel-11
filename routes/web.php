@@ -39,9 +39,12 @@ Route::get('admin/users/view/{id}', [AdminController::class, 'admin_users_view']
 Route::get('admin/users/add', [AdminController::class, 'admin_users_add']);
 
 Route::post('admin/users/add', [AdminController::class, 'admin_users_add_post']);
-
+//edit user
 Route::get('admin/users/edit/{id}', [AdminController::class, 'admin_users_edit']);
 Route::post('admin/users/edit/{id}', [AdminController::class, 'admin_users_edit_post']);
+
+//hapus user
+Route::get('admin/users/delete/{id}', [AdminController::class, 'admin_users_delete']);
 
 Route::get('password_baru/{token}', [AdminController::class, 'set_password_baru']);
 

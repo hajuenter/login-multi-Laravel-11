@@ -147,7 +147,7 @@ class AdminController extends Controller
         Mail::to($newUser->email)->send(new RegisteredMail($newUser)); // Kirim email notifikasi pendaftaran
 
         // Redirect ke halaman admin/users/add dengan pesan sukses
-        return redirect('admin/users/add')->with('success', 'User berhasil ditambahkan');
+        return redirect('admin/users/add')->with('success', 'User berhasil ditambahkan, silahkan mengatur password dengan klik button yang saya kirim ke email anda !!!');
     }
 
     // Method untuk menampilkan halaman set password baru
@@ -210,6 +210,15 @@ class AdminController extends Controller
         $saveEdit->save();
     
         return redirect('admin/users')->with('success', 'Pengguna berhasil di edit');
+    }
+
+    public function admin_users_delete($id, Request $request) {
+        //dd($id);
+        $dataUserDelete = User::find($id);
+        $dataUserDelete->hapus = 1;
+        $dataUserDelete->save();
+
+        return redirect('admin/users')->with('success', 'Pengguna berhasil di hapus');
     }
     
 }

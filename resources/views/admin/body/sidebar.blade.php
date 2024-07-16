@@ -13,34 +13,34 @@
         <ul class="nav">
             <li class="nav-item nav-category">Menu Utama</li>
          
-            {{-- menu dashboard --}}
+            {{-- menu utama --}}
         <li class="nav-item">
             <a href="{{ route('admin.dashboard') }}" class="nav-link">
                     <i class="link-icon" data-feather="box"></i>
                     <span class="link-title">Dashboard</span>
                 </a>
         </li>
-            {{-- menu dashboard end --}}
+            {{-- menu utama end --}}
 
             {{-- menu pesan --}}
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false"
-                    aria-controls="emails">
+            <li class="nav-item @if(Request::segment(2) == 'pesan') active @endif">
+                <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false" aria-controls="emails">
                     <i class="link-icon" data-feather="mail"></i>
                     <span class="link-title">Pesan</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse" id="emails">
+                <div class="collapse @if(Request::segment(2) == 'pesan') show @endif" id="emails">
                     <ul class="nav sub-menu">
-                        <li class="nav-item">
+                        <li class="nav-item @if(Request::segment(3) == 'kirim') active @endif">
                             <a href="{{ url('admin/pesan/kirim') }}" class="nav-link">Inbox</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item @if(Request::segment(3) == 'compose') active @endif">
                             <a href="{{ url('admin/pesan/compose') }}" class="nav-link">Sent</a>
                         </li>
                     </ul>
                 </div>
             </li>
+            
             {{-- menu pesan end --}}    
 
             
@@ -135,7 +135,7 @@
             {{-- menu supplier end --}}
 
             {{-- menu role --}}
-            <li class="nav-item">
+            <li class="nav-item @if(Request::segment(2) == 'users') active @endif">
                 <a class="nav-link" data-bs-toggle="collapse" href="#formrole" role="button" aria-expanded="false"
                     aria-controls="forms">
                     <i class="link-icon" data-feather="smile"></i>

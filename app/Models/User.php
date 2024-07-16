@@ -43,6 +43,7 @@ class User extends Authenticatable
 
     static public function getRecord($request) {
         $return = self::select('users.*')
+        ->where('hapus', '=', 0)
         ->orderBy('id', 'asc');
 
         //cari user start
@@ -79,7 +80,7 @@ class User extends Authenticatable
         }
         //cari user end
 
-        $return = $return->paginate(5);
+        $return = $return->paginate(10);
         return $return;
     }
 }
