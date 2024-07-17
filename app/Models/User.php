@@ -78,6 +78,9 @@ class User extends Authenticatable
         if (!empty(Request::get('status'))) {
             $return = $return->where('users.status', '=', Request::get('status'));
         }
+        if(!empty(Request::get('start_date')) && !empty(Request::get('end_date'))) {
+            $return = $return->where('users.created_at', '>=', Request::get('start_date'))->where('users.created_at', '<=', Request::get('end_date'));
+        }
         //cari user end
 
         $return = $return->paginate(10);

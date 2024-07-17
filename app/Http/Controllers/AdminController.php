@@ -95,6 +95,12 @@ class AdminController extends Controller
     public function admin_users(Request $request)
     {
         $data['getRecord'] = User::getRecord($request); // Ambil data pengguna sesuai request
+        $data['dataTotalAdmin'] = User::where('role', '=', 'admin')->where('hapus', '=', 0)->count();
+        $data['dataTotalAgent'] = User::where('role', '=', 'agent')->where('hapus', '=', 0)->count();
+        $data['dataTotalUser'] = User::where('role', '=', 'user')->where('hapus', '=', 0)->count();
+        $data['dataTotalAktif'] = User::where('status', '=', 'active')->where('hapus', '=', 0)->count();
+        $data['dataTotalTidakAktif'] = User::where('status', '=', 'inactive')->where('hapus', '=', 0)->count();
+        $data['dataTotalSemua'] = User::where('hapus', '=', 0)->count();
         return view('admin.users.list', $data); // Tampilkan view admin.users.list dengan data pengguna
     }
 

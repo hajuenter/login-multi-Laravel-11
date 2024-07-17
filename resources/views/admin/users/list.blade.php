@@ -7,6 +7,26 @@
                 <li class="breadcrumb-item"><a href="{{ url('admin/users') }}">Role</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Users Role</li>
             </ol>
+            <div class="d-flex align-items-center">
+                <a href="" class="btn btn-secondary me-2">
+                    Admin {{ $dataTotalAdmin }}
+                </a> {{--&nbsp;&nbsp; --}}
+                <a href="" class="btn btn-primary me-2">
+                    Agent {{ $dataTotalAgent }}
+                </a>
+                <a href="" class="btn btn-warning me-2">
+                    User {{ $dataTotalUser }}
+                </a>
+                <a href="" class="btn btn-success me-2">
+                    Active {{ $dataTotalAktif }}
+                </a>
+                <a href="" class="btn btn-danger me-2">
+                    In Active {{ $dataTotalTidakAktif }}
+                </a>
+                <a href="" class="btn btn-light me-2">
+                    Total {{ $dataTotalSemua }}
+                </a>
+            </div>
         </nav>
 
         {{-- start cari user --}}
@@ -83,6 +103,18 @@
                                             <option value="inactive"
                                                 {{ Request()->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="mb-3">
+                                        <label class="form-label">Mulai Tanggal</label>
+                                        <input type="date" name="start_date" class="form-control" value="{{ Request()->start_date }}" placeholder="Mulai Tanggal">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="mb-3">
+                                        <label class="form-label">Akhir Tanggal</label>
+                                        <input type="date" name="end_date" class="form-control" value="{{ Request()->end_date }}" placeholder="Akhir Tanggal">
                                     </div>
                                 </div>
                             </div>
