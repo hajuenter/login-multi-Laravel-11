@@ -157,11 +157,17 @@
                                 </thead>
                                 <tbody>
                                     @forelse ($getRecord as $value)
+                                    <form class="a_form{{ $value->id }}" method="post">
+                                        {{ csrf_field() }}
                                         <tr>
                                             <th>{{ $value->id }}</th>
                                             <td>{{ $value->name }}</td>
                                             <td>{{ $value->username }}</td>
-                                            <td>{{ $value->email }}</td>
+                                            <td style="min-width: 250px;">
+                                                <input type="hidden" name="edit_id" value="{{ $value->id }}">
+                                                <input type="email" class="form-control" name="edit_email" value="{{ old('email', $value->email) }}">
+                                                <button type="button" class="mt-2 btn btn-success submitfform" id="{{ $value->id }}">Simpan</button>
+                                            </td>
                                             {{-- <td>
                                             @if (!empty($value->photo))
                                             <img src="{{ asset('uploud/'. $value->photo) }}" style="width: 13px; height:auto;">
@@ -219,6 +225,7 @@
                                                     </svg> <span class="">Delete</span></a>
                                             </td>
                                         </tr>
+                                    </form>
                                     @empty
                                         <tr>
                                             <td colspan="100%">Data tidak ditemukan !!!</td>
@@ -235,4 +242,21 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')'
+    <script type="text/javascript">
+    $('table').delegate('.submitfform', 'click', function(){
+        var id = $(this).attr('id');
+        //alert(id);
+        $.ajax({
+            url:"{{ url('admin/users/update') }}",
+            method:"POST",
+            data: $('.a_form'+id).serialize(),
+            dataType: 'json',
+            success:function(response) {
+                alert(response.success);
+            }
+        });
+    });
+    </script>
 @endsection

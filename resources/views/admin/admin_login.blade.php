@@ -59,7 +59,7 @@
                                             @csrf
                                             <div class="mb-3">
                                                 <label for="login" class="form-label">Email</label>
-                                                <input type="text" name="login" class="form-control" id="login"
+                                                <input type="email" name="login" class="form-control" id="login"
                                                     placeholder="Email" value="{{ old('login') }}" required>
                                                     <span style="color: red">{{ $errors->first('login') }}</span>
                                             </div>

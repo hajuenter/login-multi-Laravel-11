@@ -42,6 +42,7 @@ Route::post('admin/users/add', [AdminController::class, 'admin_users_add_post'])
 //edit user
 Route::get('admin/users/edit/{id}', [AdminController::class, 'admin_users_edit']);
 Route::post('admin/users/edit/{id}', [AdminController::class, 'admin_users_edit_post']);
+Route::post('admin/users/update', [AdminController::class, 'admin_users_update_email']);
 
 //hapus user
 Route::get('admin/users/delete/{id}', [AdminController::class, 'admin_users_delete']);

@@ -218,6 +218,14 @@ class AdminController extends Controller
         return redirect('admin/users')->with('success', 'Pengguna berhasil di edit');
     }
 
+    public function admin_users_update_email(Request $request) {
+        $setRecorderEmail = User::find($request->input('edit_id'));
+        $setRecorderEmail->email = $request->input('edit_email');
+        $setRecorderEmail->save();
+        $json['success'] = 'Data email berhasil di perbarui';
+        echo json_encode($json);
+    }
+
     public function admin_users_delete($id, Request $request) {
         //dd($id);
         $dataUserDelete = User::find($id);
