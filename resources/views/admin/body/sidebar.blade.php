@@ -139,14 +139,14 @@
                 <a class="nav-link" data-bs-toggle="collapse" href="#formrole" role="button" aria-expanded="false"
                     aria-controls="forms">
                     <i class="link-icon" data-feather="smile"></i>
-                    <span class="link-title">Role</span>
+                    <span class="link-title">Users</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 {{-- isi menu data role --}}
                 <div class="collapse" id="formrole">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{ url('admin/users') }}" class="nav-link">Users Role</a>
+                            <a href="{{ url('admin/users') }}" class="nav-link">Role</a>
                         </li>
                     </ul>
                 </div>

@@ -91,6 +91,10 @@ class AdminController extends Controller
         return redirect('admin/profile')->with('success', 'Profil Update Sukses Woiiiiiiiiiiii');
     }
 
+    public function admin_prodile_edit(Request $request) {
+        return view('admin.profile_edit');
+    }
+
     // Method untuk menampilkan daftar pengguna (users) admin
     public function admin_users(Request $request)
     {
