@@ -26,7 +26,7 @@
                       <a class="nav-link d-flex align-items-center" href="{{ url('admin/pesan/kirim') }}">
                         <i data-feather="inbox" class="icon-lg me-2"></i>
                         Inbox
-                        <span class="badge bg-danger fw-bolder ms-auto">2
+                        <span class="badge bg-danger fw-bolder ms-auto">
                       </a>
                     </li>
                     <li class="nav-item">
@@ -39,7 +39,7 @@
                       <a class="nav-link d-flex align-items-center" href="#">
                         <i data-feather="briefcase" class="icon-lg me-2"></i>
                         Important
-                        <span class="badge bg-secondary fw-bolder ms-auto">4
+                        <span class="badge bg-secondary fw-bolder ms-auto">
                       </a>
                     </li>
                     <li class="nav-item">
